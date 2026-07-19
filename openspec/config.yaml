@@ -1,0 +1,16 @@
+schema: spec-driven
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+# Add your tech stack, conventions, style guides, domain knowledge, etc.
+context: "Runtime: Python 3.14. Backend: FastAPI with Pydantic domain models. Persistence: Supabase-managed PostgreSQL; server-side Python code accesses the database, and Supabase Auth or browser-direct database access are not assumed. Domain: An LLM-based running coach that analyzes athlete-uploaded activity data and provides science-backed coaching. Conventions: Keep coaching logic independent of source-specific activity formats. Use Alembic-compatible database migrations and verify FIT, GPX, and TCX parsing with representative fixtures."
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always include a "Non-goals" section
+#     tasks:
+#       - Break tasks into chunks of max 2 hours

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"><Activities><Activity Sport="Biking"><Lap StartTime="2026-07-19T06:00:00Z"><Track><Trackpoint><Time>2026-07-19T06:00:00Z</Time></Trackpoint><Trackpoint><Time>2026-07-19T06:00:30Z</Time></Trackpoint></Track></Lap></Activity></Activities></TrainingCenterDatabase>
