@@ -3,7 +3,7 @@
 - [x] 1.1 Bootstrap a Python 3.14 FastAPI project with Pydantic domain models, dependency locking, and CI/runtime checks that enforce Python 3.14.
 - [x] 1.2 Select maintained FIT, GPX, and TCX parsing libraries compatible with Python 3.14 and record their licensing and supported data fields.
 - [x] 1.3 Define the canonical completed-activity, lap, sample, metric-availability, provenance, and categorized import-outcome models.
-- [ ] 1.4 Provision Supabase PostgreSQL and define Alembic-compatible migrations for normalized activities, athlete ownership, checksum-based deduplication, parser version, and import status.
+- [x] 1.4 Provision Supabase PostgreSQL and define Alembic-compatible migrations for normalized activities, athlete ownership, checksum-based deduplication, parser version, and import status.
 - [x] 1.5 Establish configuration for upload size, sample-count, activity-duration, memory, and processing-time limits.
 
 ## 2. Parsing and normalization
@@ -23,7 +23,7 @@
 
 ## 4. Verification and operations
 
-- [ ] 4.1 Add representative FIT, GPX, and TCX fixtures covering successful runs, optional metrics, unsupported sport, malformed content, and duplicate files.
+- [x] 4.1 Add representative FIT, GPX, and TCX fixtures covering successful runs, optional metrics, unsupported sport, malformed content, and duplicate files.
 - [x] 4.2 Add unit and integration tests for detection, parser adapters, normalization, validation, atomic persistence, and categorized errors.
 - [x] 4.3 Add tests proving unavailable metrics remain absent and no partial activity is visible after every failure path.
 - [x] 4.4 Add telemetry for import outcomes, source format, parser version, durations, and limit failures without logging sensitive route or health data.

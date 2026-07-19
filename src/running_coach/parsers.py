@@ -73,6 +73,12 @@ def _parse_time(value: str | None) -> datetime | None:
     return _as_utc(datetime.fromisoformat(value.replace("Z", "+00:00")))
 
 
+def _positive_measurement(value: int | float | None) -> int | None:
+    if value is None or value <= 0:
+        return None
+    return int(value)
+
+
 def _child_text(node: ElementTree.Element, name: str) -> str | None:
     child = next((item for item in node.iter() if item.tag.rsplit("}", 1)[-1] == name), None)
     return child.text if child is not None else None
@@ -277,8 +283,8 @@ class FitParser:
                                 distance_meters=values.get(
                                     "enhanced_distance", values.get("distance")
                                 ),
-                                heart_rate_bpm=values.get("heart_rate"),
-                                cadence_spm=values.get("cadence"),
+                                heart_rate_bpm=_positive_measurement(values.get("heart_rate")),
+                                cadence_spm=_positive_measurement(values.get("cadence")),
                             )
                         )
                     elif frame.name == "lap":

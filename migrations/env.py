@@ -1,9 +1,12 @@
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+from running_coach.config import Settings
 from running_coach.database import Base
 
 config = context.config
+database_url = Settings().database_url
+config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 target_metadata = Base.metadata
 
 

@@ -70,3 +70,21 @@ def test_fit_signature_is_detected_before_parser_selection() -> None:
     fit_header = b"00000000.FIT"
 
     assert detect_format(fit_header, "activity.fit") is SourceFormat.FIT
+
+
+def test_fit_running_activity_normalizes_zero_sensor_values_as_absent() -> None:
+    parsed, parser = parse_activity(fixture("evening_run.fit"), "evening_run.fit")
+
+    normalized = normalize_activity(
+        parsed, parser, "athlete-1", "checksum", Settings(database_url="sqlite+pysqlite:///:memory:")
+    )
+
+    assert normalized.provenance.source_format is SourceFormat.FIT
+    assert len(normalized.samples) > 1
+    assert all(
+        sample.heart_rate_bpm is None or sample.heart_rate_bpm > 0
+        for sample in normalized.samples
+    )
+    assert all(
+        sample.cadence_spm is None or sample.cadence_spm > 0 for sample in normalized.samples
+    )
